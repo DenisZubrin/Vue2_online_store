@@ -29,4 +29,27 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="css" scoped>
+.wrapper {
+  margin: 0 auto;
+}
+.main {
+  min-height: 100vh;
+}
+
+.slider {
+  height: 505px;
+  background-image: url("../../assets/main-slider-bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #000;
+}
+
+.products {
+  max-width: 1400px;
+  display: flex;
+  margin: 112px auto;
+  gap: 40px;
+}
+  
+</style>
