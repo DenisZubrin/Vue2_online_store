@@ -1,22 +1,26 @@
 <template>
   <div class="wrapper">
     <Header />
-    <Breadcrumbs />
+    <Breadcrumbs :address="$route.query.title" />
     <main class="main">
       <section class="product">
         <img
-          src="@/assets/products-images/product_1_front.png"
+          :src="$route.query.image"
           alt="product__full-image"
           class="product__full-image"
         />
         <div class="product__text">
-          <h1 class="product__name">Женская сумка</h1>
+          <h1 class="product__name">{{ $route.query.title }}</h1>
           <p class="product__description">
-            Сумочка-тоут среднего размера идеально держит форму, выполнена из
-            экокожи черного цвета и черного меха. Имеет одно просторное
-            отделение с карманом перегородкой и внутренним карманом на молнии.
+            {{ $route.query.description }}
           </p>
-          <span class="product__price">2 300 руб.</span>
+          <span class="product__price">
+            {{
+              ($route.query.price * 100)
+                .toString()
+                .replace(/\B(?=(?:\d{3})+(?!\d))/g, ' ')
+            }}
+          </span>
           <button class="product__btn">Избранное</button>
         </div>
       </section>
@@ -27,7 +31,7 @@
 
 <script>
 import Header from '@/components/UI/Header';
-import Footer from '@/components//UI/Footer';
+import Footer from '@/components/UI/Footer';
 import Breadcrumbs from '@/components/UI/Breadcrumbs';
 
 export default {
@@ -36,6 +40,24 @@ export default {
     Footer,
     Breadcrumbs,
   },
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+  },
 };
 </script>
 
@@ -43,6 +65,7 @@ export default {
 .main {
   max-width: 1400px;
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 .product {
@@ -51,7 +74,10 @@ export default {
 }
 
 .product__full-image {
-  height: 715px;
+  height: 100%;
+  width: 100%;
+  max-width: 680px;
+  object-fit: cover;
   outline: 0.5px solid #e5e5e5;
   margin: 0 40px 0 0;
 }
@@ -64,7 +90,7 @@ export default {
 .product__name {
   margin: 0 0 24px;
   font-size: 48px;
-  color: #0A1E32;
+  color: #0a1e32;
   font-weight: 500;
 }
 
@@ -72,26 +98,32 @@ export default {
   margin: 0 0 24px;
   font-size: 16px;
   line-height: 1.5;
-  color: #464C58;
+  color: #464c58;
 }
 
 .product__price {
   display: block;
   margin: 0 0 24px;
   font-size: 48px;
-  color: #0A1E32;
+  color: #0a1e32;
   font-weight: 700;
 }
 
+.product__price::after {
+  display: inline-block;
+  content: 'руб.';
+  margin: 0 0 0 6px;
+}
+
 .product__btn {
-  border: 1px solid #0A1E32;
+  border: 1px solid #0a1e32;
   border-radius: 4px;
   padding: 8px 32px 8px 64px;
   box-sizing: border-box;
   position: relative;
   text-align: right;
   background-color: #fff;
-  color: #0A1E32;
+  color: #0a1e32;
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 1.05px;

@@ -3,9 +3,11 @@
     <ProductCard
       v-for="product in productsList"
       :key="product.id"
+      :id="product.id"
       :title="product.title"
       :price="product.price"
       :image="product.image"
+      :description="product.description"
     />
   </section>
 </template>
@@ -17,11 +19,77 @@ export default {
   components: {
     ProductCard,
   },
-  props: {
-    productsList: {
-      type: Array,
-      // required: true
+  data() {
+    return {
+      // productsList: [
+      //   {
+      //     id: 1,
+      //     title: 'Сумка',
+      //     price: 2300,
+      //     image: '~@/assets/products-images/product_1.png',
+      //   },
+      //   {
+      //     id: 2,
+      //     title: 'Сумка',
+      //     price: 2400,
+      //     image: '@/assets/products-images/product_1.png',
+      //   },
+      //   {
+      //     id: 3,
+      //     title: 'Сумка',
+      //     price: 2300,
+      //     image: '../../assets/products-images/product_1.png',
+      //   },
+      //   {
+      //     id: 4,
+      //     title: 'Сумка',
+      //     price: 2300,
+      //     image: '../../assets/products-images/product_1.png',
+      //   },
+      //   {
+      //     id: 5,
+      //     title: 'Сумка',
+      //     price: 2300,
+      //     image: '../../assets/products-images/product_1.png',
+      //   },
+      //   {
+      //     id: 6,
+      //     title: 'Сумка',
+      //     price: 2300,
+      //     image: '../../assets/products-images/product_1.png',
+      //   },
+      //   {
+      //     id: 7,
+      //     title: 'Сумка',
+      //     price: 2300,
+      //     image: '../../assets/products-images/product_1.png',
+      //   },
+      //   {
+      //     id: 8,
+      //     title: 'Сумка',
+      //     price: 2300,
+      //     image: '../../assets/products-images/product_1.png',
+      //   },
+      //   {
+      //     id: 9,
+      //     title: 'Сумка',
+      //     price: 2300,
+      //     image: '../../assets/products-images/product_1.png',
+      //   },
+      // ],
+      productsList: [],
+    };
+  },
+  methods: {
+    async fetchGoods() {
+      const data = await fetch('https://fakestoreapi.com/products')
+        .then((result) => result.text())
+        .then((result) => JSON.parse(result));
+      this.productsList = data;
     },
+  },
+  mounted() {
+    this.fetchGoods();
   },
 };
 </script>

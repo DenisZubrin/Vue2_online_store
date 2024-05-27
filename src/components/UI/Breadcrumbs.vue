@@ -1,14 +1,20 @@
-<template lang="">
+<template>
   <nav class="nav">
     <ul class="nav__list">
       <li class="nav__link" @click="$router.push('/')">Главная</li>
-      <li class="nav__link">Избранное</li>
+      <li class="nav__link">{{ address ? address : 'Избранное' }}</li>
     </ul>
   </nav>
 </template>
+
 <script>
 export default {
   name: 'Breadcrumbs',
+  props: {
+    address: {
+      type: String
+    },
+  },
   data() {
     return {};
   },
@@ -30,7 +36,7 @@ export default {
   list-style-type: none;
   font-size: 18px;
   font-weight: 400;
-  color: #464C58;
+  color: #464c58;
 }
 
 .nav__link {

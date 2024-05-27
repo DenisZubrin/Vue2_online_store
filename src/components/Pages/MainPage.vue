@@ -3,7 +3,7 @@
     <Header />
     <main class="main">
       <div class="slider"></div>
-      <ProductsList :productsList="productsList" />
+      <ProductsList />
     </main>
     <Footer />
   </div>
@@ -21,78 +21,6 @@ export default {
     ProductsList,
   },
   name: 'MainPage',
-  data() {
-    return {
-      // productsList: [
-      //   {
-      //     id: 1,
-      //     title: 'Сумка',
-      //     price: 2300,
-      //     image: '~@/assets/products-images/product_1.png',
-      //   },
-      //   {
-      //     id: 2,
-      //     title: 'Сумка',
-      //     price: 2400,
-      //     image: '@/assets/products-images/product_1.png',
-      //   },
-      //   {
-      //     id: 3,
-      //     title: 'Сумка',
-      //     price: 2300,
-      //     image: '../../assets/products-images/product_1.png',
-      //   },
-      //   {
-      //     id: 4,
-      //     title: 'Сумка',
-      //     price: 2300,
-      //     image: '../../assets/products-images/product_1.png',
-      //   },
-      //   {
-      //     id: 5,
-      //     title: 'Сумка',
-      //     price: 2300,
-      //     image: '../../assets/products-images/product_1.png',
-      //   },
-      //   {
-      //     id: 6,
-      //     title: 'Сумка',
-      //     price: 2300,
-      //     image: '../../assets/products-images/product_1.png',
-      //   },
-      //   {
-      //     id: 7,
-      //     title: 'Сумка',
-      //     price: 2300,
-      //     image: '../../assets/products-images/product_1.png',
-      //   },
-      //   {
-      //     id: 8,
-      //     title: 'Сумка',
-      //     price: 2300,
-      //     image: '../../assets/products-images/product_1.png',
-      //   },
-      //   {
-      //     id: 9,
-      //     title: 'Сумка',
-      //     price: 2300,
-      //     image: '../../assets/products-images/product_1.png',
-      //   },
-      // ],
-      productsList: [],
-    };
-  },
-  methods: {
-    async fetchGoods() {
-      const data = await fetch('https://fakestoreapi.com/products')
-        .then((result) => result.text())
-        .then((result) => JSON.parse(result));
-      this.productsList = data;
-    },
-  },
-  mounted() {
-    this.fetchGoods();
-  },
 };
 </script>
 

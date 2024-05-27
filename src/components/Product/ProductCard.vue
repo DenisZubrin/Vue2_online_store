@@ -1,5 +1,13 @@
 <template>
-  <article class="card" @click="$router.push('/product')">
+  <article
+    class="card"
+    @click="
+      $router.push({
+        path: `/product/${id}`,
+        query: { title, price, image, description },
+      })
+    "
+  >
     <span class="card__action-btn"></span>
     <img class="card__photo" :src="image" alt="product-photo" />
     <h3 class="card__name">{{ title }}</h3>
@@ -22,6 +30,14 @@ export default {
     },
     image: {
       type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    id: {
+      type: Number,
       required: true,
     },
   },

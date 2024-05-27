@@ -15,14 +15,15 @@ export default new Router({
       component: MainPage,
     },
     {
-      path: '/product',
-      name: 'ProductPage',
-      component: ProductPage,
-    },
-    {
       path: '/wishlist',
       name: 'WishlistPage',
       component: WishlistPage,
+    },
+    {
+      path: '/product/:id',
+      name: 'ProductPage',
+      component: ProductPage,
+      props: true
     },
   ],
 });
