@@ -1,28 +1,42 @@
 <template>
   <article class="card" @click="$router.push('/product')">
     <span class="card__action-btn"></span>
-    <img
-      class="card__photo"
-      src="@/assets/products-images/product_1.png"
-      alt="product-photo"
-    />
-    <h3 class="card__name">Сумка через плечо</h3>
-    <span class="card__price">2300 руб.</span>
+    <img class="card__photo" :src="image" alt="product-photo" />
+    <h3 class="card__name">{{ title }}</h3>
+    <span class="card__price">{{
+      (price * 100).toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ' ')
+    }}</span>
   </article>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="css" scoped>
 .card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   width: 320px;
   position: relative;
-  padding: 16px 0;
+  padding: 40px 16px 16px;
   box-sizing: border-box;
 }
 
@@ -31,17 +45,27 @@ export default {};
   box-shadow: 0 5px 25px rgb(30 31 33 / 24%);
   transition: 0.5s;
 }
-
+.card__photo {
+  width: 100%;
+  height: 336px;
+}
 .card__name {
   font-size: 18px;
   font-weight: 400;
-  color: #0A1E32;
+  color: #0a1e32;
+  text-align: center;
 }
 
 .card__price {
   font-size: 24px;
   font-weight: 800;
-  color: #464C58;
+  color: #464c58;
+}
+
+.card__price::after {
+  display: inline-block;
+  content: 'руб.';
+  margin: 0 0 0 6px;
 }
 
 .card__action-btn {
