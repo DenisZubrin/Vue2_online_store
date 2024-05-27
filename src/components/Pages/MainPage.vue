@@ -39,7 +39,7 @@ export default {
 
 .slider {
   height: 505px;
-  background-image: url("../../assets/main-slider-bg.png");
+  background-image: url("~@/assets/main-slider-bg.png");
   background-repeat: no-repeat;
   background-position: center;
   background-color: #000;

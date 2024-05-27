@@ -4,7 +4,7 @@
       <button class="footer__link" @click="$router.push('/wishlist')">
         Избранное
       </button>
-      <a href="#" class="footer__link">8 800 888 00 88</a>
+      <a href="#" class="footer__link footer__phone">8 800 888 00 88</a>
     </div>
   </footer>
 </template>
@@ -16,6 +16,7 @@ export default {
   },
 };
 </script>
+
 <style lang="css" scoped>
 .footer {
   background-color: #0a1e32;
@@ -35,6 +36,12 @@ export default {
   background-color: inherit;
   color: white;
   text-decoration: none;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.footer__phone {
+  font-size: 24px;
 }
 
 .footer__link:hover {
