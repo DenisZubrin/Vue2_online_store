@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import Header from '../UI/Header';
-import Footer from '../UI/Footer';
-import ProductCard from '../Product/ProductCard';
+import Header from '@/components/UI/Header';
+import Footer from '@/components/UI/Footer';
+import ProductCard from '@/components/Product/ProductCard';
 
 export default {
   components: {

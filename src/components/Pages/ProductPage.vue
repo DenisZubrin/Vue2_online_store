@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <div class="wrapper">
     <Header />
     <Breadcrumbs />
@@ -23,4 +23,4 @@ export default {
 };
 </script>
 
-<style lang=""></style>
+<style lang="css"></style>

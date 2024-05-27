@@ -1,7 +1,9 @@
 <template>
   <footer class="footer">
     <div class="footer__content">
-      <a href="#" class="footer__link">Избранное</a>
+      <button class="footer__link" @click="$router.push('/wishlist')">
+        Избранное
+      </button>
       <a href="#" class="footer__link">8 800 888 00 88</a>
     </div>
   </footer>
@@ -12,25 +14,30 @@ export default {
   data() {
     return {};
   },
-}
+};
 </script>
 <style lang="css" scoped>
-  .footer {
-    background-color: #0A1E32;
-  }
+.footer {
+  background-color: #0a1e32;
+}
 
-  .footer__content {
-    max-width: 1400px;
-    height: 96px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.footer__content {
+  max-width: 1400px;
+  height: 96px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .footer__link {
-    display: block;
-    text-decoration: none;
-    color: white;
-  }
+.footer__link {
+  border: none;
+  background-color: inherit;
+  color: white;
+  text-decoration: none;
+}
+
+.footer__link:hover {
+  cursor: pointer;
+}
 </style>

@@ -1,11 +1,11 @@
 <template>
   <header class="header">
-    <a href="#" class="header__logo-link"
-      ><img src="../../assets/logo.png" alt="logotype"
-    /></a>
-    <a href="#" class="header__wishlist-link"
-      ><img src="../../assets/heart-icon_filled.png" alt="wishlist"
-    /></a>
+    <button class="header__link" @click="$router.push('/')"
+      ><img src="@/assets/logo.png" alt="logotype"
+    /></button>
+    <button class="header__link" @click="$router.push('/wishlist')"
+      ><img src="@/assets/heart-icon_filled.png" alt="wishlist"
+    /></button>
   </header>
 </template>
 
@@ -28,8 +28,14 @@ export default {
   margin: 0 auto;
 }
 
-.header__wishlist-link {
+.header__link {
   display: flex;
   align-self: center;
+  border: none;
+  background-color: inherit;
+}
+
+.header__link:hover {
+  cursor: pointer;
 }
 </style>
