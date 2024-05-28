@@ -4,6 +4,12 @@ import MainPage from '@/components/Pages/MainPage';
 import WishlistPage from '@/components/Pages/WishlistPage';
 import ProductPage from '@/components/Pages/ProductPage';
 
+// Исправляет повторное открытие того же маршрута 
+const originalPush = Router.prototype.push;
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+};
+
 Vue.use(Router);
 
 export default new Router({

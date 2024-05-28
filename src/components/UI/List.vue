@@ -5,6 +5,7 @@
       :key="product.id"
       :product="product"
       :wishlist="wishlist"
+      @sendIDToList="sendIDToPage"
     />
   </section>
 </template>
@@ -24,6 +25,12 @@ export default {
       type: Array
     }
   },
+  methods: {
+    sendIDToPage(id) {
+      console.log(id);
+      this.$emit('sendIDToPage', id);
+    }
+  }
 };
 </script>
 

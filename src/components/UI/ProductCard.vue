@@ -3,7 +3,7 @@
     <button
       class="card__btn"
       :class="{ card__btn_filled: filled }"
-      @click.stop="addToWishlist(product.id)"
+      @click.stop="sendIDToList(product.id)"
     ></button>
     <img class="card__photo" :src="product.image" alt="product-photo" />
     <h3 class="card__name">{{ product.title }}</h3>
@@ -34,8 +34,8 @@ export default {
       this.filled = !this.filled;
     },
 
-    addToWishlist(id) {
-      // подвязать через эмит с функцией апп
+    sendIDToList() {
+      this.$emit('sendIDToList', this.product.id);
       this.changeStatus();
     },
 
@@ -101,6 +101,7 @@ export default {
   right: 10px;
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 .card__btn:hover:active {
   background-image: url('~@/assets/heart-icon_filled.png');

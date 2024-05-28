@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <router-view :wishlist="wishlist" :productsList="productsList" />
+    <router-view 
+      :wishlist="wishlist" 
+      :productsList="productsList"
+      @sendIDToWishlist="updateWishlist" />
   </div>
 </template>
 
@@ -42,11 +45,13 @@ export default {
     },
 
     updateWishlist(id) {
-      if (this.wishlist.find((product) => product.id === id)) {
+      console.log(id);
+      console.log(this.wishlist);
+      if (this.wishlist.findIndex((product) => product.id === id) !== -1) {
         // Удаляем cуществующий в списке продукт
         this.wishlist = this.wishlist.filter((product) => product.id !== id);
       } else {
-        this.wishlist.push(this.productsList[id]);
+        this.wishlist.push(this.productsList.find(product => product.id === id));
       }
     },
   },
