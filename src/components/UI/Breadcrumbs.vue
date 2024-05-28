@@ -15,9 +15,6 @@ export default {
       type: String
     },
   },
-  data() {
-    return {};
-  },
 };
 </script>
 

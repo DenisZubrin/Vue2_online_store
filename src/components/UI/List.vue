@@ -14,6 +14,7 @@
 import ProductCard from '@/components/UI/ProductCard';
 
 export default {
+  name: 'List',
   components: {
     ProductCard,
   },

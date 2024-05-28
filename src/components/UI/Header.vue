@@ -1,15 +1,17 @@
 <template>
   <header class="header">
-    <button class="header__link header__logo" @click="$router.push('/')">
-      <img src="@/assets/logo.png" alt="logotype" />
-    </button>
-    <button
-      class="header__link header__heart-icon"
-      @click="$router.push('/wishlist')"
-    >
-      <img src="@/assets/heart-icon_filled.png" alt="wishlist" />
-      <span class="header__wishlist-counter">{{ counter }}</span>
-    </button>
+    <div class="header__wrapper">
+      <button class="header__link header__logo" @click="$router.push('/')">
+        <img src="@/assets/logo.png" alt="logotype" />
+      </button>
+      <button
+        class="header__link header__heart-icon"
+        @click="$router.push('/wishlist')"
+      >
+        <img src="@/assets/heart-icon_filled.png" alt="wishlist" />
+        <span class="header__wishlist-counter">{{ counter }}</span>
+      </button>
+    </div>
   </header>
 </template>
 
@@ -21,22 +23,22 @@ export default {
       type: Number,
     },
   },
-  data() {
-    return {};
-  },
 };
 </script>
 
 <style lang="css" scoped>
 .header {
-  display: flex;
+  border-bottom: 1px solid #0a1e32;
+  box-sizing: border-box;
+}
+
+.header__wrapper {
   height: 76px;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
-  border-bottom: 1px solid #0a1e32;
-  box-sizing: border-box;
 }
 
 .header__link {

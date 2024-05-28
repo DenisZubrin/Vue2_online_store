@@ -3,11 +3,12 @@ import Router from 'vue-router';
 import MainPage from '@/components/Pages/MainPage';
 import WishlistPage from '@/components/Pages/WishlistPage';
 import ProductPage from '@/components/Pages/ProductPage';
+import NotFoundPage from '@/components/Pages/NotFoundPage';
 
-// Исправляет повторное открытие того же маршрута 
+// Исправляет повторное открытие того же маршрута
 const originalPush = Router.prototype.push;
 Router.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err)
+  return originalPush.call(this, location).catch((err) => err);
 };
 
 Vue.use(Router);
@@ -29,7 +30,12 @@ export default new Router({
       path: '/product/:id',
       name: 'ProductPage',
       component: ProductPage,
-      props: true
+      props: true,
+    },
+    { 
+      path: '*', 
+      name: '404', 
+      component: NotFoundPage, 
     },
   ],
 });
