@@ -2,13 +2,13 @@
   <header class="header">
     <div class="header__wrapper">
       <button class="header__link header__logo" @click="$router.push('/')">
-        <img src="@/assets/logo.png" alt="logotype" />
+        <img src="@/assets/img/logo.png" alt="logotype" />
       </button>
       <button
         class="header__link header__heart-icon"
         @click="$router.push('/wishlist')"
       >
-        <img src="@/assets/heart-icon_filled.png" alt="wishlist" />
+        <img src="@/assets/img/heart-icon_filled.png" alt="wishlist" />
         <span class="header__wishlist-counter">{{ counter }}</span>
       </button>
     </div>
@@ -66,6 +66,7 @@ export default {
   position: absolute;
   content: '';
   display: block;
+  box-sizing: border-box;
   border-radius: 50%;
   color: white;
   background-color: #eb4c47;
@@ -76,6 +77,6 @@ export default {
   font-size: 12px;
   font-family: 'Ubuntu';
   text-align: center;
-  line-height: 16px;
+  line-height: 14px;
 }
 </style>

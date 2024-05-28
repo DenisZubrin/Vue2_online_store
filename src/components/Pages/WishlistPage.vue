@@ -10,6 +10,7 @@
           :wishlist="wishlist"
           v-if="wishlist.length > 0"
           @sendIDToPage="sendIDToWishlist"
+          :cross="true"
         />
         <span class="wishlist__empty-status" v-else
           >Список избранного пуст</span

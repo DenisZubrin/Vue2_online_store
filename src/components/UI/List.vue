@@ -6,6 +6,7 @@
       :product="product"
       :wishlist="wishlist"
       @sendIDToList="sendIDToPage"
+      :cross="cross"
     />
   </section>
 </template>
@@ -24,6 +25,9 @@ export default {
     },
     list: {
       type: Array
+    },
+    cross: {
+      type: Boolean
     }
   },
   methods: {

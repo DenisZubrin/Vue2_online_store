@@ -2,7 +2,7 @@
   <article class="card" @click="openProductPage(product)">
     <button
       class="card__btn"
-      :class="{ card__btn_filled: filled }"
+      :class="{ card__btn_filled: filled, card__btn_cross: cross }"
       @click.stop="sendIDToList(product.id)"
     ></button>
     <img class="card__photo" :src="product.image" alt="product-photo" />
@@ -22,6 +22,9 @@ export default {
     },
     wishlist: {
       type: Array,
+    },
+    cross: {
+      type: Boolean,
     },
   },
   data() {
@@ -99,7 +102,7 @@ export default {
   content: '';
   border: none;
   background-color: inherit;
-  background-image: url('~@/assets/heart-icon_emptied.png');
+  background-image: url('~@/assets/img/heart-icon_emptied.png');
   background-repeat: no-repeat;
   background-position: center;
   top: 10px;
@@ -109,14 +112,18 @@ export default {
   cursor: pointer;
 }
 .card__btn:hover:active {
-  background-image: url('~@/assets/heart-icon_filled.png');
+  background-image: url('~@/assets/img/heart-icon_filled.png');
 }
 
 .card__btn_filled {
-  background-image: url('~@/assets/heart-icon_filled.png');
+  background-image: url('~@/assets/img/heart-icon_filled.png');
 }
 
 .card__btn_filled:hover:active {
-  background-image: url('~@/assets/heart-icon_emptied.png');
+  background-image: url('~@/assets/img/heart-icon_emptied.png');
+}
+
+.card__btn_cross {
+  background-image: url('~@/assets/img/cross-icon.png');
 }
 </style>

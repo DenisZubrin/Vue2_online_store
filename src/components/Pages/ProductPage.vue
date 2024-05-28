@@ -156,7 +156,7 @@ export default {
   top: 15px;
   width: 20px;
   height: 18px;
-  background-image: url('~@/assets/heart-icon_emptied.png');
+  background-image: url('~@/assets/img/heart-icon_emptied.png');
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -169,16 +169,16 @@ export default {
   top: 15px;
   width: 20px;
   height: 18px;
-  background-image: url('~@/assets/heart-icon_filled.png');
+  background-image: url('~@/assets/img/heart-icon_filled.png');
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .product__btn_filled::before {
-  background-image: url('~@/assets/heart-icon_filled.png');
+  background-image: url('~@/assets/img/heart-icon_filled.png');
 }
 
 .product__btn_filled::before:hover .product__btn_filled::before:active {
-  background-image: url('~@/assets/heart-icon_emptied.png');
+  background-image: url('~@/assets/img/heart-icon_emptied.png');
 }
 </style>
