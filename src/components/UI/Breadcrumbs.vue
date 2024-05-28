@@ -18,7 +18,7 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 .nav {
   max-width: 1400px;
   margin: 32px auto;

@@ -68,7 +68,7 @@ export default {
 
 .card:hover {
   cursor: pointer;
-  box-shadow: 0 5px 25px rgb(30 31 33 / 24%);
+  box-shadow: 0px 5px 25px rgb(30 31 33 / 24%);
   transition: 0.5s;
 }
 .card__photo {

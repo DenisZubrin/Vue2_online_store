@@ -51,7 +51,7 @@ export default {
 
 <style lang="css" scoped>
 .main {
-  min-height: 100vh;
+  min-height: calc(100vh - 96px);
 }
 
 .wishlist {

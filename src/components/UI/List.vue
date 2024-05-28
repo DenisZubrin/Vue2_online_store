@@ -28,7 +28,6 @@ export default {
   },
   methods: {
     sendIDToPage(id) {
-      console.log(id);
       this.$emit('sendIDToPage', id);
     }
   },

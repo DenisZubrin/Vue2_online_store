@@ -81,7 +81,7 @@ export default {
 .main {
   max-width: 1400px;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: calc(100vh - 96px);
 }
 
 .product {
@@ -93,7 +93,8 @@ export default {
   height: 100%;
   width: 100%;
   max-width: 680px;
-  object-fit: cover;
+  max-height: 715px;
+  object-fit: contain;
   outline: 0.5px solid #e5e5e5;
   margin: 0 40px 0 0;
 }

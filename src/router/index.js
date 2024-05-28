@@ -32,10 +32,14 @@ export default new Router({
       component: ProductPage,
       props: true,
     },
-    { 
-      path: '*', 
-      name: '404', 
-      component: NotFoundPage, 
+    {
+      path: '*',
+      name: '404',
+      component: NotFoundPage,
     },
   ],
+  // Промотка в начало страницы при переходе
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  },
 });

@@ -22,6 +22,7 @@ export default {
 
 .footer__content {
   max-width: 1400px;
+  width: 100%;
   height: 96px;
   margin: 0 auto;
   display: flex;
@@ -36,6 +37,8 @@ export default {
   text-decoration: none;
   font-size: 18px;
   font-weight: 400;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .footer__phone {

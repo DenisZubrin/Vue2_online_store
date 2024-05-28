@@ -23,7 +23,7 @@ export default {
 
 <style lang="css" scoped>
 .main {
-  min-height: 100vh;
+  min-height: calc(100vh - 96px);
   max-width: 1400px;
   margin: 120px auto 0;
 }</style>
