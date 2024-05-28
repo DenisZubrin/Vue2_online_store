@@ -21,7 +21,13 @@
                 .replace(/\B(?=(?:\d{3})+(?!\d))/g, ' ')
             }}
           </span>
-          <button class="product__btn">Избранное</button>
+          <button 
+          class="product__btn" 
+          :class="{ product__btn_filled: filled }"
+          @click="sendIDToWishlist($route.query.product.id)"
+          >
+            Избранное
+          </button>
         </div>
       </section>
     </main>
@@ -44,10 +50,30 @@ export default {
     wishlist: {
       type: Array,
     },
-    product: {
-      type: Object,
-    },
   },
+  data() {
+    return {
+      filled: false,
+    };
+  },
+  mounted() {
+    if (
+      this.wishlist.find(
+        (product) => product.id === this.$route.query.product.id,
+      )
+    ) {
+      this.filled = true;
+    }
+  },
+  methods: {
+    changeStatus() {
+      this.filled = !this.filled;
+    },
+    sendIDToWishlist(id) {
+      this.$emit('sendIDToWishlist', id);
+      this.changeStatus();
+    }
+  }
 };
 </script>
 
@@ -118,9 +144,6 @@ export default {
   font-weight: 700;
   letter-spacing: 1.05px;
   text-transform: uppercase;
-}
-
-.product__btn:hover {
   cursor: pointer;
 }
 
@@ -148,5 +171,13 @@ export default {
   background-image: url('~@/assets/heart-icon_filled.png');
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.product__btn_filled::before {
+  background-image: url('~@/assets/heart-icon_filled.png');
+}
+
+.product__btn_filled::before:hover .product__btn_filled::before:active {
+  background-image: url('~@/assets/heart-icon_emptied.png');
 }
 </style>
