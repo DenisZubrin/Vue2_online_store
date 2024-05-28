@@ -8,6 +8,7 @@
       @click="$router.push('/wishlist')"
     >
       <img src="@/assets/heart-icon_filled.png" alt="wishlist" />
+      <span class="header__wishlist-counter">{{ counter }}</span>
     </button>
   </header>
 </template>
@@ -15,6 +16,11 @@
 <script>
 export default {
   name: 'Header',
+  props: {
+    counter: {
+      type: Number,
+    },
+  },
   data() {
     return {};
   },
@@ -54,13 +60,13 @@ export default {
   position: relative;
 }
 
-.header__heart-icon::after {
+.header__wishlist-counter {
   position: absolute;
-  content: '0';
+  content: '';
   display: block;
   border-radius: 50%;
   color: white;
-  background-color: #EB4C47;
+  background-color: #eb4c47;
   width: 16px;
   height: 16px;
   top: -2px;

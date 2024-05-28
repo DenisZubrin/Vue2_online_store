@@ -1,12 +1,12 @@
-<template lang="">
+<template>
   <div class="wrapper">
-    <Header />
+    <Header :counter="wishlist.length" />
     <Breadcrumbs />
     <main class="main">
       <section class="wishlist">
         <h1 class="wishlist__heading">Избранное</h1>
-        <ProductCard />
-        <span class="wishlist__empty-status">Список избранного пуст</span>
+        <List :list="wishlist" v-if="wishlist.length > 0"/>
+        <span class="wishlist__empty-status" v-else>Список избранного пуст</span>
       </section>
     </main>
     <Footer />
@@ -17,14 +17,22 @@
 import Header from '@/components/UI/Header';
 import Footer from '@/components/UI/Footer';
 import Breadcrumbs from '@/components/UI/Breadcrumbs';
-import ProductCard from '@/components/Product/ProductCard';
+import List from '@/components/UI/List';
 
 export default {
   components: {
     Header,
     Footer,
     Breadcrumbs,
-    ProductCard,
+    List,
+  },
+  props: {
+    wishlist: {
+      type: Array,
+    },
+    productsList: {
+      type: Array
+    }
   },
 };
 </script>
@@ -42,16 +50,16 @@ export default {
 .wishlist__heading {
   margin: 0 0 32px;
   font-size: 48px;
-  color: #0A1E32;
+  color: #0a1e32;
   font-weight: 700;
 }
 
 .wishlist__empty-status {
-  display: none;
+  display: block;
   margin: 132px auto 0;
   text-align: center;
   font-size: 40px;
-  color: #464C58;
+  color: #464c58;
   font-weight: 400;
 }
 </style>

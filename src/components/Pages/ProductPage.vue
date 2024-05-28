@@ -1,22 +1,22 @@
 <template>
   <div class="wrapper">
-    <Header />
-    <Breadcrumbs :address="$route.query.title" />
+    <Header :counter="wishlist.length" />
+    <Breadcrumbs :address="$route.query.product.title" />
     <main class="main">
       <section class="product">
         <img
-          :src="$route.query.image"
+          :src="$route.query.product.image"
           alt="product__full-image"
           class="product__full-image"
         />
         <div class="product__text">
-          <h1 class="product__name">{{ $route.query.title }}</h1>
+          <h1 class="product__name">{{ $route.query.product.title }}</h1>
           <p class="product__description">
-            {{ $route.query.description }}
+            {{ $route.query.product.description }}
           </p>
           <span class="product__price">
             {{
-              ($route.query.price * 100)
+              ($route.query.product.price * 100)
                 .toString()
                 .replace(/\B(?=(?:\d{3})+(?!\d))/g, ' ')
             }}
@@ -41,21 +41,11 @@ export default {
     Breadcrumbs,
   },
   props: {
-    title: {
-      type: String,
-      required: true,
+    wishlist: {
+      type: Array,
     },
-    price: {
-      type: Number,
-      required: true,
-    },
-    image: {
-      type: String,
-      required: true,
-    },
-    description: {
-      type: String,
-      required: true,
+    product: {
+      type: Object,
     },
   },
 };

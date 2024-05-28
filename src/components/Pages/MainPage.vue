@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header :counter="wishlist.length" />
     <main class="main">
-      <div class="slider"></div>
-      <ProductsList />
+      <section class="slider"></section>
+      <List :list="productsList" />
     </main>
     <Footer />
   </div>
@@ -12,15 +12,23 @@
 <script>
 import Header from '@/components/UI/Header';
 import Footer from '@/components/UI/Footer';
-import ProductsList from '@/components/Product/ProductsList';
+import List from '@/components/UI/List';
 
 export default {
   components: {
     Header,
     Footer,
-    ProductsList,
+    List,
   },
   name: 'MainPage',
+  props: {
+    wishlist: {
+      type: Array,
+    },
+    productsList: {
+      type: Array,
+    },
+  },
 };
 </script>
 
