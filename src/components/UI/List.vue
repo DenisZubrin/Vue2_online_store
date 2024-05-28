@@ -30,7 +30,8 @@ export default {
       console.log(id);
       this.$emit('sendIDToPage', id);
     }
-  }
+  },
+  
 };
 </script>
 

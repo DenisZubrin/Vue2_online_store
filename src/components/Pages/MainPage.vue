@@ -5,7 +5,8 @@
       <section class="slider"></section>
       <List 
       :list="productsList" 
-      @sendIDToPage="sendIDToWishlist"/>
+      @sendIDToPage="sendIDToWishlist"
+      :wishlist="wishlist"/>
     </main>
     <Footer />
   </div>
@@ -35,7 +36,8 @@ export default {
     sendIDToWishlist(id) {
       this.$emit('sendIDToWishlist', id);
     }
-  }
+  },
+  
 };
 </script>
 

@@ -46,6 +46,11 @@ export default {
       });
     },
   },
+  mounted() {
+    if (this.wishlist.find((product) => product.id === this.product.id)) {
+      this.filled = true;
+    }
+  },
 };
 </script>
 

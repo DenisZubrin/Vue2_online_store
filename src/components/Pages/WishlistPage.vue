@@ -5,8 +5,15 @@
     <main class="main">
       <section class="wishlist">
         <h1 class="wishlist__heading">Избранное</h1>
-        <List :list="wishlist" v-if="wishlist.length > 0"/>
-        <span class="wishlist__empty-status" v-else>Список избранного пуст</span>
+        <List
+          :list="wishlist"
+          :wishlist="wishlist"
+          v-if="wishlist.length > 0"
+          @sendIDToPage="sendIDToWishlist"
+        />
+        <span class="wishlist__empty-status" v-else
+          >Список избранного пуст</span
+        >
       </section>
     </main>
     <Footer />
@@ -30,8 +37,13 @@ export default {
     wishlist: {
       type: Array,
     },
-    productsList: {
-      type: Array
+    list: {
+      type: Array,
+    },
+  },
+  methods: {
+    sendIDToWishlist(id) {
+      this.$emit('sendIDToWishlist', id);
     }
   },
 };

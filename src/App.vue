@@ -13,26 +13,6 @@ export default {
   data() {
     return {
       wishlist: [],
-      // wishlist: [
-      //   {
-      //     id: 1,
-      //     title: 'Сумка',
-      //     price: 2300,
-      //     image: '~@/assets/products-images/product_1.png',
-      //   },
-      //   {
-      //     id: 2,
-      //     title: 'Сумка',
-      //     price: 2400,
-      //     image: '@/assets/products-images/product_1.png',
-      //   },
-      //   {
-      //     id: 3,
-      //     title: 'Сумка',
-      //     price: 2300,
-      //     image: '../../assets/products-images/product_1.png',
-      //   },
-      // ],
       productsList: [],
     };
   },
@@ -45,8 +25,6 @@ export default {
     },
 
     updateWishlist(id) {
-      console.log(id);
-      console.log(this.wishlist);
       if (this.wishlist.findIndex((product) => product.id === id) !== -1) {
         // Удаляем cуществующий в списке продукт
         this.wishlist = this.wishlist.filter((product) => product.id !== id);
